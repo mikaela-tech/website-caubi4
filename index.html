@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAUBI - Inovasi Kerupuk Jantung Pisang & Bumbu Kulit Udang</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#4c1d95', // bg-purple-900
+                            darkPurple: '#2e1065', // bg-violet-950
+                            lightPurple: '#f3e8ff', // bg-purple-100
+                            cream: '#fdfbf7', // Warm Cream background
+                            creamCard: '#f7f3e9', // Soft beige/cream card
+                            orange: '#f97316', // Primary Accent (Orange 500)
+                            orangeDark: '#ea580c', // Darker Orange (Orange 600)
+                            orangeLight: '#ffedd5', // Orange tint
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Smooth Scroll & Background Patterns */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fdfbf7;
+            color: #292524;
+        }
+        
+        .bg-pattern {
+            background-image: radial-gradient(rgba(249, 115, 22, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .glass-header {
+            background: rgba(46, 16, 101, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-orange-500 selection:text-white">
+
+    <!-- NAVBAR STICKY -->
+    <header class="sticky top-0 z-50 glass-header border-b border-purple-800/40 text-white transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo Brand -->
+                <a href="#beranda" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-500 to-amber-400 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-orange-500/30 group-hover:scale-105 transition-transform">
+                        C
+                    </div>
+                    <span class="text-2xl font-black tracking-wider text-white">
+                        CAU<span class="text-orange-400">BI</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
+                    <a href="#beranda" class="hover:text-orange-400 transition-colors py-2 border-b-2 border-transparent hover:border-orange-400">Beranda</a>
+                    <a href="#tentang" class="hover:text-orange-400 transition-colors py-2 border-b-2 border-transparent hover:border-orange-400">Tentang Kami</a>
+                    <a href="#keunggulan" class="hover:text-orange-400 transition-colors py-2 border-b-2 border-transparent hover:border-orange-400">Keunggulan</a>
+                    <a href="#proses" class="hover:text-orange-400 transition-colors py-2 border-b-2 border-transparent hover:border-orange-400">Proses Pembuatan</a>
+                    <a href="#target" class="hover:text-orange-400 transition-colors py-2 border-b-2 border-transparent hover:border-orange-400">Target Pasar</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="text-stone-300 hover:text-white focus:outline-none p-2 rounded-lg bg-purple-900/50 border border-purple-700" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-darkPurple border-b border-purple-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" class="mobile-link block px-3 py-2.5 rounded-lg text-stone-200 hover:bg-purple-900 hover:text-orange-400 font-medium">Beranda</a>
+            <a href="#tentang" class="mobile-link block px-3 py-2.5 rounded-lg text-stone-200 hover:bg-purple-900 hover:text-orange-400 font-medium">Tentang Kami</a>
+            <a href="#keunggulan" class="mobile-link block px-3 py-2.5 rounded-lg text-stone-200 hover:bg-purple-900 hover:text-orange-400 font-medium">Keunggulan</a>
+            <a href="#proses" class="mobile-link block px-3 py-2.5 rounded-lg text-stone-200 hover:bg-purple-900 hover:text-orange-400 font-medium">Proses Pembuatan</a>
+            <a href="#target" class="mobile-link block px-3 py-2.5 rounded-lg text-stone-200 hover:bg-purple-900 hover:text-orange-400 font-medium">Target Pasar</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative bg-gradient-to-br from-brand-darkPurple via-purple-900 to-indigo-950 text-white pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden">
+        <!-- Abstract Background Ornaments -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 -left-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Text Content Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-300 text-xs sm:text-sm font-semibold tracking-wide">
+                        <span>🌿</span> Inovasi Upcycling Food Khas Pesisir Pangandaran
+                    </div>
+
+                    <!-- Headline -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-stone-100">
+                        Cita Rasa Otentik Pangandaran: <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Kerupuk Jantung Pisang & Bumbu Alami Kulit Udang!</span>
+                    </h1>
+
+                    <!-- Sub-headline -->
+                    <p class="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Camilan tinggi serat, kaya antioksidan, dan gurih alami umami — renyah di lidah, baik untuk tubuh, dan ramah lingkungan.
+                    </p>
+
+                    <!-- Navigation Action Button -->
+                    <div class="pt-4 flex flex-wrap justify-center lg:justify-start gap-4">
+                        <a href="#keunggulan" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-base shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 transform hover:-translate-y-0.5 transition-all duration-200">
+                            <i class="fa-solid fa-magnifying-glass text-amber-100"></i>
+                            <span>Jelajahi Keunggulan Produk</span>
+                        </a>
+                        <a href="#tentang" class="inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-purple-900/60 hover:bg-purple-800/80 border border-purple-700/60 text-stone-200 hover:text-white font-semibold text-base transition-all duration-200">
+                            <span>Pelajari Selengkapnya</span>
+                            <i class="fa-solid fa-arrow-down text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual Card / Feature Display Column -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Decorative Frame -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-3xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                        
+                        <div class="relative bg-purple-950/80 border border-purple-700/50 backdrop-blur-xl p-8 rounded-3xl shadow-2xl text-stone-100">
+                            <div class="w-full h-52 bg-gradient-to-br from-purple-900 to-indigo-900 rounded-2xl flex flex-col items-center justify-center p-6 mb-6 text-center border border-purple-700/40">
+                                <div class="w-16 h-16 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-3xl mb-3">
+                                    <i class="fa-solid fa-bowl-food"></i>
+                                </div>
+                                <span class="text-xl font-bold text-white">CAUBI Premium</span>
+                                <span class="text-xs text-orange-300 font-medium">Authentic Coastal Upcycled Snack</span>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-purple-900/40 border border-purple-800/60">
+                                    <i class="fa-solid fa-circle-check text-orange-400 text-lg"></i>
+                                    <span class="text-sm font-medium text-stone-200">0% Bahan Pengawet Buatan</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-purple-900/40 border border-purple-800/60">
+                                    <i class="fa-solid fa-circle-check text-orange-400 text-lg"></i>
+                                    <span class="text-sm font-medium text-stone-200">Kaya Umami Ekstrak Kulit Udang</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-purple-900/40 border border-purple-800/60">
+                                    <i class="fa-solid fa-circle-check text-orange-400 text-lg"></i>
+                                    <span class="text-sm font-medium text-stone-200">Serat Tinggi Jantung Pisang Lokal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STORYTELLING / ABOUT SECTION -->
+    <section id="tentang" class="py-20 bg-brand-cream relative bg-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center space-y-4 mb-16">
+                <span class="text-orange-600 font-extrabold tracking-wider uppercase text-sm bg-orange-100 px-4 py-1.5 rounded-full inline-block">
+                    Storytelling & Visi Kami
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-darkPurple">
+                    Dari Kekayaan Bahari & Agrikultur Pangandaran
+                </h2>
+                <p class="text-xl font-bold text-orange-600">
+                    Lahirlah CAUBI: Inovasi Pangan Berkelanjutan!
+                </p>
+            </div>
+
+            <!-- Content Card -->
+            <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl shadow-purple-950/5 border border-purple-100 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-bl-full pointer-events-none"></div>
+                
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 space-y-6 text-stone-700 leading-relaxed text-base sm:text-lg">
+                        <p class="first-letter:text-5xl first-letter:font-extrabold first-letter:text-brand-purple first-letter:float-left first-letter:mr-3">
+                            Pangandaran tidak hanya terkenal dengan pesona pantai dan cagar alamnya. Kami mengolah jantung pisang dari perkebunan lokal dan kulit udang segar hasil tangkapan nelayan Pangandaran menjadi camilan bernilai gizi tinggi. 
+                        </p>
+                        <p class="bg-amber-50/80 border-l-4 border-orange-500 p-4 rounded-r-xl text-amber-950 font-medium">
+                            <i class="fa-solid fa-quote-left text-orange-400 mr-2"></i>
+                            CAUBI menyulap limbah pertanian & perikanan menjadi kelezatan premium bernutrisi.
+                        </p>
+                    </div>
+
+                    <!-- Highlight Badges -->
+                    <div class="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-4">
+                        <div class="p-5 rounded-2xl bg-purple-50 border border-purple-100 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-purple text-white flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-brand-darkPurple text-sm">Hasil Bumi</h3>
+                                <p class="text-xs text-stone-600">Perkebunan Pisang Lokal</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-orange-50 border border-orange-100 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-orange-500 text-white flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-shrimp"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-brand-darkPurple text-sm">Tangkapan Pesisir</h3>
+                                <p class="text-xs text-stone-600">Nelayan Pangandaran</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN SECTION -->
+    <section id="keunggulan" class="py-20 bg-stone-100 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-brand-purple font-extrabold tracking-wider uppercase text-sm bg-purple-100 px-4 py-1.5 rounded-full inline-block">
+                    Keunggulan Produk
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-darkPurple">
+                    Kenapa Harus Memilih CAUBI?
+                </h2>
+                <p class="text-stone-600">
+                    Satu camilan unik yang memadukan manfaat kesehatan, kelestarian alam, dan kenikmatan cita rasa otentik.
+                </p>
+            </div>
+
+            <!-- 3 Category Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Category 1: Nutrisi -->
+                <div class="bg-white rounded-3xl p-8 border-t-4 border-orange-500 shadow-xl shadow-stone-200/50 flex flex-col justify-between hover:shadow-2xl transition-all">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-darkPurple mb-4">
+                            1. Nutrisi Tinggi & Baik untuk Kesehatan
+                        </h3>
+                        <ul class="space-y-3 text-stone-600 text-sm">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-orange-500 mt-1"></i>
+                                <span><strong>Tinggi Serat Pangan:</strong> Baik untuk pencernaan & membuat kenyang lebih lama.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-orange-500 mt-1"></i>
+                                <span><strong>Indeks Glikemik Rendah:</strong> Aman untuk pembatasan konsumsi gula.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-orange-500 mt-1"></i>
+                                <span><strong>Kaya Antioksidan & Mineral:</strong> Mengandung flavonoid, polifenol, kalium, zat besi, fosfor, dan kalsium.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-orange-500 mt-1"></i>
+                                <span><strong>Bebas Kolesterol:</strong> Murni berbahan dasar nabati alami.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 2: Zero Waste -->
+                <div class="bg-white rounded-3xl p-8 border-t-4 border-brand-purple shadow-xl shadow-stone-200/50 flex flex-col justify-between hover:shadow-2xl transition-all">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-purple-100 text-brand-purple flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-recycle"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-darkPurple mb-4">
+                            2. Keunggulan Produksi & Zero Waste Khas Pesisir
+                        </h3>
+                        <ul class="space-y-3 text-stone-600 text-sm">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-purple mt-1"></i>
+                                <span><strong>Pemanfaatan Limbah Pertanian & Bahari:</strong> Concept <i>Upcycling food</i> dari jantung pisang & kulit udang.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-purple mt-1"></i>
+                                <span><strong>Bumbu Udang Gurih Alami:</strong> Hasil ekstraksi kulit udang berkualitas dengan aroma umami khas Pangandaran.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-purple mt-1"></i>
+                                <span><strong>Pasokan Melimpah & Berkelanjutan:</strong> Menggunakan hasil bumi & pesisir lokal sepanjang tahun.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 3: Rasa & Daya Saing -->
+                <div class="bg-white rounded-3xl p-8 border-t-4 border-amber-500 shadow-xl shadow-stone-200/50 flex flex-col justify-between hover:shadow-2xl transition-all">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-darkPurple mb-4">
+                            3. Daya Saing & Cita Rasa Otentik
+                        </h3>
+                        <ul class="space-y-3 text-stone-600 text-sm">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-amber-500 mt-1"></i>
+                                <span><strong>Renyah & Khas:</strong> Tekstur <i>crispy</i> khas dari serat alami jantung pisang.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-amber-500 mt-1"></i>
+                                <span><strong>Oleh-Oleh Khas Pangandaran:</strong> Camilan sehat dan unik bernilai sosial serta ekonomi tinggi bagi masyarakat lokal.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROSES PEMBUATAN SECTION -->
+    <section id="proses" class="py-20 bg-brand-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-orange-600 font-extrabold tracking-wider uppercase text-sm bg-orange-100 px-4 py-1.5 rounded-full inline-block">
+                    Standar Kualitas
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-darkPurple">
+                    Empat Langkah Sederhana Menuju Kelezatan CAUBI
+                </h2>
+                <p class="text-stone-600">
+                    Proses pengolahan higienis yang menjaga keutuhan gizi dan menghasilkan kerenyahan maksimal.
+                </p>
+            </div>
+
+            <!-- Steps Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Step 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-md relative group hover:-translate-y-1 transition-transform">
+                    <div class="w-10 h-10 rounded-full bg-brand-purple text-white font-extrabold text-lg flex items-center justify-center mb-4 shadow-md">
+                        1
+                    </div>
+                    <div class="text-orange-500 text-2xl mb-2">
+                        <i class="fa-solid fa-hand-holding-harvest"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-brand-darkPurple mb-2">Seleksi Bahan Lokal</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        Jantung pisang segar dan kulit udang dari tangkapan nelayan dibersihkan secara higienis.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-md relative group hover:-translate-y-1 transition-transform">
+                    <div class="w-10 h-10 rounded-full bg-brand-purple text-white font-extrabold text-lg flex items-center justify-center mb-4 shadow-md">
+                        2
+                    </div>
+                    <div class="text-orange-500 text-2xl mb-2">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-brand-darkPurple mb-2">Formulasi Bumbu</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        Jantung pisang dihaluskan, dicampur tepung tapioka, dan dipadu bumbu gurih ekstraksi kulit udang.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-md relative group hover:-translate-y-1 transition-transform">
+                    <div class="w-10 h-10 rounded-full bg-brand-purple text-white font-extrabold text-lg flex items-center justify-center mb-4 shadow-md">
+                        3
+                    </div>
+                    <div class="text-orange-500 text-2xl mb-2">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-brand-darkPurple mb-2">Pengukusan & Pengeringan</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        Dikukus presisi, diiris tipis, lalu dikeringkan di bawah sinar matahari alami.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-md relative group hover:-translate-y-1 transition-transform">
+                    <div class="w-10 h-10 rounded-full bg-brand-purple text-white font-extrabold text-lg flex items-center justify-center mb-4 shadow-md">
+                        4
+                    </div>
+                    <div class="text-orange-500 text-2xl mb-2">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-brand-darkPurple mb-2">Penggorengan & Pengemasan</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        Digoreng hingga renyah keemasan, menghasilkan kerupuk berkualitas tinggi.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TARGET AUDIENS SECTION -->
+    <section id="target" class="py-20 bg-stone-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-orange-400 font-extrabold tracking-wider uppercase text-sm bg-orange-500/20 px-4 py-1.5 rounded-full inline-block border border-orange-500/30">
+                    Segmen Konsumen
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-100">
+                    Cocok Untuk Siapa?
+                </h2>
+                <p class="text-stone-400">
+                    CAUBI dirancang khusus untuk memenuhi selera dan kebutuhan ragam penikmat camilan.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Target 1 -->
+                <div class="bg-stone-800/80 p-8 rounded-3xl border border-stone-700 hover:border-orange-500/50 transition-all text-center group">
+                    <div class="w-16 h-16 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-3xl mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-100 mb-3">
+                        Pencinta Gaya Hidup Sehat
+                    </h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">
+                        Pilihan sempurna bagi individu <i>Health-Conscious</i> yang mencari camilan bernutrisi, kaya serat, dan aman dikonsumsi harian.
+                    </p>
+                </div>
+
+                <!-- Target 2 -->
+                <div class="bg-stone-800/80 p-8 rounded-3xl border border-stone-700 hover:border-orange-500/50 transition-all text-center group">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-3xl mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-100 mb-3">
+                        Wisatawan & Pemburu Oleh-Oleh
+                    </h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">
+                        Oleh-oleh autentik bernilai lokal tinggi yang wajib dibawa pulang saat berkunjung ke destinasi pesisir Pangandaran.
+                    </p>
+                </div>
+
+                <!-- Target 3 -->
+                <div class="bg-stone-800/80 p-8 rounded-3xl border border-stone-700 hover:border-orange-500/50 transition-all text-center group">
+                    <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-100 mb-3">
+                        Penggemar Produk Ramah Lingkungan
+                    </h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">
+                        Pendukung gerakan <i>Zero Waste</i> yang peduli terhadap pengurangan limbah pangan melalui konsumsi makanan hasil inovasi <i>Upcycling</i>.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING / SHOWCASE SECTION -->
+    <section class="py-20 bg-gradient-to-br from-brand-purple via-brand-darkPurple to-indigo-950 text-white relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+            <div class="w-16 h-16 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-3xl mx-auto mb-2 border border-orange-500/30">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
+            
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+                Komitmen CAUBI untuk Kesehatan & Lingkungan
+            </h2>
+            
+            <p class="text-base sm:text-xl text-purple-200 max-w-3xl mx-auto font-light leading-relaxed">
+                Menghadirkan cita rasa khas pesisir Pangandaran dalam wujud camilan sehat, bernutrisi, dan mendukung keberlanjutan pangan lokal.
+            </p>
+
+            <div class="pt-6">
+                <a href="#beranda" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-purple-800/80 hover:bg-purple-700 text-white font-semibold border border-purple-600 transition-colors shadow-lg">
+                    <span>Kembali ke Atas</span>
+                    <i class="fa-solid fa-arrow-up text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-darkPurple text-stone-400 py-12 border-t border-purple-900/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-purple-900/60">
+                <!-- Brand Title -->
+                <div class="text-center md:text-left">
+                    <a href="#beranda" class="text-2xl font-black text-white tracking-wider inline-block mb-1">
+                        CAU<span class="text-orange-400">BI</span>
+                    </a>
+                    <p class="text-sm text-purple-300 max-w-md">
+                        Inovasi Kerupuk Jantung Pisang & Bumbu Kulit Udang Khas Pangandaran.
+                    </p>
+                </div>
+
+                <!-- Info Segment -->
+                <div class="text-center md:text-right">
+                    <p class="text-sm font-medium text-stone-300">
+                        Informasi Produk & Profil Usaha Makanan Lokal Indonesia.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-xs text-purple-300/70">
+                <p>Copyright &copy; 2026 CAUBI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Navigation Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            // Toggle Mobile Menu
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                } else {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-xmark');
+                }
+            });
+
+            // Close Mobile Menu when link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
